@@ -20,7 +20,7 @@
         $password = mysqli_real_escape_string($con, $password);
         $create_datetime = date("Y-m-d H:i:s");
         $query    = "INSERT into `users` (username, password, email, create_datetime)
-                     VALUES ('$username', '" . md5($password) . "', '$email', '$create_datetime')";
+                     VALUES ('$username', '" . md5($password) . "', '$email')";
         $result   = mysqli_query($con, $query);
         if ($result) {
             echo "<div class='form'>
