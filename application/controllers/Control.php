@@ -1,13 +1,17 @@
 <?php
-class Control extends CI_Controller {
+class Hello extends CI_Controller {
 	public function __construct()
 	{
 		//call CodeIgniter's default Constructor
 		parent::__construct();
 		$this->load->library('form_validation');
+		$this->load->database();
+		$this->load->helper('url');
+		$this->load->model('UserModel');
+		$this->load->library('session');
 		
 		//load database libray manually
-		$this->load->database();
+		//$this->load->database();
 		
 		//load Model
 		$this->load->model('Mod');
@@ -35,6 +39,22 @@ class Control extends CI_Controller {
 			}
 		}	
 
-		$this->load->view('reg');
+		$this->load->view('reg.php');
 	}
+	
 }
+function can_login($last_name, $e)  
+	{  
+		$this->db->where('username', $username);  
+		$this->db->where('password', $password);  
+		$query = $this->db->get('users');  
+		//SELECT * FROM users WHERE username = '$username' AND password = '$password'  
+		if($query->num_rows() > 0)  
+		{  
+			return true;  
+		}  
+		else  
+		{  
+			return false;       
+		}  
+	}
