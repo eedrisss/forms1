@@ -25,12 +25,12 @@ class Control extends CI_Controller {
 			//Check submit button 
 			if($this->input->post('save')){
 				//get form's data and store in local varable
-				$u=$this->input->post('username');
-				$e=$this->input->post('email');
-                $p=$this->input->post('password');
+				$username=$this->input->post('username');
+				$email=$this->input->post('email');
+                $password=$this->input->post('password');
 				
 				//call saverecords method of Hello_Model and pass variables as parameter
-				$this->Mod->saverecords($u,$e,$p);		
+				$this->Mod->saverecords($username,$email,$password);		
 				echo "Records Saved Successfully";
 			}
 		}	
