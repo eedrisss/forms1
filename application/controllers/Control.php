@@ -7,7 +7,7 @@ class Hello extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->database();
 		$this->load->helper('url');
-		$this->load->model('UserModel');
+		$this->load->model('Mod');
 		$this->load->library('session');
 		
 		//load database libray manually
@@ -16,8 +16,8 @@ class Hello extends CI_Controller {
 		//load Model
 		$this->load->model('Mod');
 	}
-
-	public function index()
+	
+	public function reg()
 	{
 		$this->form_validation->set_rules('username','username','required|alpha');
 		$this->form_validation->set_rules('email','email','required|valid_email');
@@ -42,8 +42,8 @@ class Hello extends CI_Controller {
 		$this->load->view('reg.php');
 	}
 	
-}
-function can_login($last_name, $e)  
+
+	function can_login($last_name, $e)  
 	{  
 		$this->db->where('username', $username);  
 		$this->db->where('password', $password);  
@@ -57,4 +57,5 @@ function can_login($last_name, $e)
 		{  
 			return false;       
 		}  
-	}
+	}	
+}
