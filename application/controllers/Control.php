@@ -84,4 +84,20 @@ class Control extends CI_Controller {
 			return false;       
 		}  
 	}	
+
+	function login()
+	{
+		$this->load->view('login.php');	
+	}
+
+	function logout()
+	{
+		$this->load->view('logout.php');	
+	}
+
+	function dashboard()
+	{
+		$this->load->view('dashboard.php');	
+	}
+
 }
