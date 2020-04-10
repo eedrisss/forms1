@@ -1,5 +1,5 @@
 <?php
-class Hello extends CI_Controller {
+class Control extends CI_Controller {
 	public function __construct()
 	{
 		//call CodeIgniter's default Constructor
@@ -8,7 +8,6 @@ class Hello extends CI_Controller {
 		$this->load->database();
 		$this->load->helper('url');
 		$this->load->model('Mod');
-		$this->load->library('session');
 		
 		//load database libray manually
 		//$this->load->database();
@@ -16,6 +15,33 @@ class Hello extends CI_Controller {
 		//load Model
 		$this->load->model('Mod');
 	}
+	
+	public function index()
+	{
+		
+		if($this->input->post('save'))
+		{
+            $username=$this->input->post('username');
+            $email=$this->input->post('email');
+            $password=$this->input->post('password');;
+		
+		$que=$this->db->query("select * from users where email='".$email."'");
+		$row = $que->num_rows();
+		if($row)
+		{
+		$data['error']="<h3 style='color:red'>This user already exists</h3>";
+		}
+		else
+		{
+		$que=$this->db->query("insert into users values('','$username','$email','$password')");
+		
+		$data['error']="<h3 style='color:blue'>Your account created successfully</h3>";
+		}			
+				
+		}
+	$this->load->view('registration',@$data);	
+	}
+
 	
 	public function reg()
 	{
