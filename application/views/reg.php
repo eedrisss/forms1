@@ -65,8 +65,8 @@
         <input type="text" class="login-input" name="username" placeholder="Username" required />
         <input type="text" class="login-input" name="email" placeholder="Email Adress">
         <input type="password" class="login-input" name="password" placeholder="Password">
-        <input type="submit" name="submit" value="Register" class="login-button">
-        <p class="link"><a href="login">Click to Login</a></p>
+        <input type="submit" name="save" value="Register" class="login-button">
+        <p class="link"><a href="Control/login">Click to Login</a></p>
     </form>
 </body>
 </html>

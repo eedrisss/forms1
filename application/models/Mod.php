@@ -7,6 +7,25 @@
 	$this->db->query($query);
 	}
 
+	function login($last_name, $e)  
+	{  
+		 $this->db->where('username', $username);  
+		 $this->db->where('password', $password);  
+		 $query = $this->db->get('users');  
+		 //SELECT * FROM users WHERE username = '$username' AND password = '$password'  
+		 if($query->num_rows() > 0)  
+		 {  
+			  return true;  
+		 }  
+		 else  
+		 {  
+			  return false;       
+		 }  
+	}  
+
+
+
+
 	public function hash($password)
    {
        $hash = password_hash($password,PASSWORD_DEFAULT);
